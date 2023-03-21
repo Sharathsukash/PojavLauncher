@@ -120,10 +120,12 @@ jobs:
       with:
           name: app-debug-noruntime
           path: out/app-debug-noruntime.apk
-    - name: Upload release artifacts
-      uses: Roang-zero1/github-upload-release-artifacts-action@v2
+    - name: Action Release
+      # You may pin to the exact commit or the version.
+      # uses: yakuhzi/release-asset@f96c41c3fdc53a02ab20a60014725490f91702a3
+      uses: yakuhzi/release-asset@v1.2.3
       with:
-        args: "out/app-debug.apk out/app-debug-noruntime.apk"
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+         # File to upload to the release
+         file: out/app-debug.apk
+         # Path to changelog file
+         changelog: a
